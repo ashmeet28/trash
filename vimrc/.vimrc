@@ -1,7 +1,7 @@
 " Disable compatibility with vi which can cause unexpected issues.
 set nocompatible
 
-" Enable type file detection. Vim will be able to try to detect the type of file in use.
+" Enable type file detection. Vim will be able to try to detect the type of file is use.
 filetype on
 
 " Enable plugins and load plugin for the detected file type.
@@ -13,7 +13,7 @@ filetype indent on
 " Turn syntax highlighting on.
 syntax on
 
-" Add numbers to each line on the left-hand side.
+" Add numbers to the file.
 set number
 
 " Set shift width to 4 spaces.
@@ -37,9 +37,19 @@ set nowrap
 " While searching though a file incrementally highlight matching characters as you type.
 set incsearch
 
-" While searching though a file incrementally highlight matching characters as you type.
-set incsearch
+" Use highlighting when doing a search.
+set hlsearch
 
 if (has('termguicolors'))
   set termguicolors
 endif
+
+call plug#begin()
+
+Plug 'morhetz/gruvbox'
+
+call plug#end()
+
+set background=dark
+
+colorscheme gruvbox
