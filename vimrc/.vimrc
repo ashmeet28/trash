@@ -24,16 +24,7 @@ set nowrap
 
 set incsearch
 
-set hlsearch
-
 set hidden
-
-inoremap jj <Esc>
-
-nnoremap <space> :
-
-nnoremap o o<esc>
-nnoremap O O<esc>
 
 if (has('termguicolors'))
   set termguicolors
