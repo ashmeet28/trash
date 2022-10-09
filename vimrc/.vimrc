@@ -26,6 +26,8 @@ set incsearch
 
 set hidden
 
+set mouse=a
+
 if (has('termguicolors'))
   set termguicolors
 endif
