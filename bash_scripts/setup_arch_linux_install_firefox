@@ -1,0 +1,3 @@
+tar xjf firefox-107.0.tar.bz2
+sudo mv firefox /opt
+sudo ln -s /opt/firefox/firefox /usr/local/bin/firefox
