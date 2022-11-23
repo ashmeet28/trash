@@ -1,0 +1,6 @@
+alias e='exit'
+alias l='ls -lhA'
+alias c='clear'
+
+export HISTFILESIZE=100000
+export HISTCONTROL=ignoreboth
