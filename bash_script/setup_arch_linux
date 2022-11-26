@@ -1,4 +1,4 @@
 sudo pacman -S bash-completion
 sudo pacman -S noto-fonts ttf-hack 
 sudo pacman -S gdm gnome-shell gnome-backgrounds gnome-terminal 
-sudo pacman -S htop wget ffmpeg qemu-desktop transmission-gtk git gcc make vim
+sudo pacman -S htop wget ffmpeg qemu-desktop transmission-gtk gcc make vim
