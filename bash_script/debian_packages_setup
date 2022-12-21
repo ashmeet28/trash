@@ -3,8 +3,10 @@ sudo apt install fonts-noto
 sudo apt install fonts-cantarell
 sudo apt install vim
 sudo apt install htop
+sudo apt install ffmpeg
 sudo apt install gdm3
 sudo apt install gnome-terminal
 sudo apt install gnome-tweak-tool
 sudo apt install firefox-esr
-sudo apt install ffmpeg
+sudo apt install qemu-system-x86
+sudo apt install transmission-gtk
