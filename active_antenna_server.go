@@ -11,7 +11,7 @@ import (
 )
 
 func main() {
-	http.Handle("/", http.FileServer(http.Dir(os.Getenv("AA_DIR_WEBSITE"))))
+	http.Handle("/", http.FileServer(http.Dir(os.Args[2])))
 
 	http.HandleFunc("/download/storage/", func(w http.ResponseWriter, r *http.Request) {
 		file_path, err := url.PathUnescape(r.URL.Path[len("/download/storage/"):])
@@ -20,7 +20,7 @@ func main() {
 			w.WriteHeader(http.StatusInternalServerError)
 			return
 		}
-		file_path = path.Join(os.Getenv("AA_DIR_STORAGE"), file_path)
+		file_path = path.Join(os.Args[1], file_path)
 
 		file, err1 := os.Open(file_path)
 		if err1 != nil {
@@ -57,7 +57,7 @@ func main() {
 			w.WriteHeader(http.StatusInternalServerError)
 			return
 		}
-		file_path = path.Join(os.Getenv("AA_DIR_STORAGE"), file_path)
+		file_path = path.Join(os.Args[1], file_path)
 		err1 := os.MkdirAll(path.Dir(file_path), 0755)
 		if err1 != nil {
 			fmt.Println("Unable to make parent dir")
