@@ -1,0 +1,1 @@
+rm -rf .dotnet dotnet .local/share/NuGet .nuget .templateengine
