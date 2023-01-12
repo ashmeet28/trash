@@ -1,0 +1,52 @@
+set nocompatible
+
+filetype on
+
+filetype plugin on
+
+filetype indent on
+
+syntax on
+
+set number
+
+set shiftwidth=4
+
+set tabstop=4
+
+set expandtab
+
+set nobackup
+
+set noswapfile
+
+set scrolloff=10
+
+set nowrap
+
+set incsearch
+
+set hidden
+
+set mouse=a
+
+if (has('termguicolors'))
+  set termguicolors
+endif
+
+call plug#begin()
+
+Plug 'morhetz/gruvbox'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'mattn/emmet-vim'
+
+call plug#end()
+
+set background=dark
+
+colorscheme gruvbox
+
+nnoremap <Leader>f :FZF<CR>
+nnoremap <Leader>b :Buffers<CR>
+let g:user_emmet_leader_key='<Leader>'
