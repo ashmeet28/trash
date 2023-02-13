@@ -47,6 +47,6 @@ set background=dark
 
 colorscheme gruvbox
 
-nnoremap <Leader>f :FZF<CR>
-nnoremap <Leader>b :Buffers<CR>
+nnoremap <Leader>f :Buffers<CR>
+nnoremap <Leader>g :GFiles<CR>
 let g:user_emmet_leader_key='<Leader>'
