@@ -1,0 +1,150 @@
+body {
+    background-color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+button {
+    cursor: pointer;
+}
+
+#top_bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-style: solid;
+    border-width: 0px 0px 1px 0px;
+}
+#top_bar_options {
+    display: flex;
+    flex-direction: row;
+}
+#top_bar_options > button {
+    background-color: #ffffff;
+    border: none;
+    color: #00000;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+#sign_up_container,
+#sign_in_container {
+    border: 1px solid #ffffff;
+    margin: 100px auto;
+    padding: 0px 8px 0px 8px;
+    width: 300px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #000000;
+    border-radius: 5px;
+}
+
+#sign_up_container > input,
+#sign_in_container > input {
+    font-size: 16px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 100%;
+    margin: 8px 0px 8px 0px;
+    padding: 6px;
+    border-style: solid;
+    border-width: 0px 0px 1px 0px;
+    border-color: #000000;
+    outline: none;
+}
+
+#sign_up_container > button,
+#sign_in_container > button{
+    font-size: 16px;
+    width: 100%;
+    margin: 8px 0px 8px 0px;
+    padding: 6px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #000000;
+    cursor: pointer;
+    outline: none;
+    background-color: #ffffff;
+    border-radius: 5px;
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+#sign_up_container > h1,
+#sign_in_container > h1 {
+    text-align: center;
+    margin: 8px 0px 8px 0px;
+    padding: 6px;
+}
+
+#search_input {
+    display: block;
+    width: 50%;
+    margin: 10px auto;
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 20px;
+}
+
+#notes_container,
+#deleted_notes_container{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    padding: 10px;
+    gap: 10px;
+}
+
+#notes_container > div,
+#deleted_notes_container > div{
+    border: 1px solid;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#note_editor,
+#new_note_editor,
+#deleted_note_manager{
+    width: 50%;
+    margin: 10px auto;
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid #000000;
+}
+#note_editor_note,
+#new_note_editor_note,
+#deleted_note_manager_note{
+    padding: 15px 32px;
+    margin: 4px 2px;
+}
+#note_editor_options,
+#new_note_editor_options,
+#deleted_note_manager_options{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#note_editor_options > div:nth-child(2),
+#deleted_note_manager_options > div:nth-child(2){
+    display: flex;
+    flex-direction: row;
+}
+
+#note_editor_options > div >button,
+#deleted_note_manager_options > div >button,
+#new_note_editor_options > div >button {
+    background-color: #ffffff;
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}

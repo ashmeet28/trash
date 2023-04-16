@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Digi Diary</title>
+    <link rel="stylesheet" href="main_index.css">
+</head>
+<body>
+    <div id="top_bar">
+        <div><h1>Digi Diary</h1></div>
+        <div id="top_bar_options">
+            <button id="new_note_option">New</button>
+            <button id="notes_option">Notes</button>
+            <button id='deleted_notes_option'>Deleted</button>
+            <button id="sign_out_button">Sign out</button>
+        </div>
+    </div>
+
+    <div id="sign_up_container">
+        <h1>Digi Diary</h1>
+        <input id="sign_up_username_input" type="text" placeholder="Username">
+        <input id="sign_up_password_input" type="password" placeholder="Password">
+        <button id="sign_up_button">Sign up</button>
+        <button id="cancel_sign_up_button">Cancel</button>
+    </div>
+
+    <div id="sign_in_container">
+        <h1>Digi Diary</h1>
+        <input id="sign_in_username_input" type="text" placeholder="Username">
+        <input id="sign_in_password_input" type="password" placeholder="Password">
+        <button id="sign_in_button">Sign in</button>
+        <button id="create_new_account_button">Create New Account</button>
+    </div>
+
+    <input id="search_input" type="text" placeholder="Search">
+
+    <div id="notes_container">
+    </div>
+    <div id="deleted_notes_container">
+    </div>
+
+    <div id="note_editor">
+        <div id="note_editor_options">
+            <div>
+                <button id="note_editor_delete_button">Delete</button>
+            </div>
+            <div>
+                <button id="note_editor_cancel_button">Cancel</button>
+                <button id="note_editor_save_button">Save</button>
+            </div>
+        </div>
+        <div id="note_editor_note" contenteditable="true"></div>
+    </div>
+
+    <div id="new_note_editor">
+        <div id="new_note_editor_options">
+            <div>
+                <button id="new_note_editor_cancel_button">Cancel</button>
+            </div>
+            <div>
+                <button id="new_note_editor_save_button">Save</button>
+            </div>
+        </div>
+        <div id="new_note_editor_note" contenteditable="true"></div>
+    </div>
+
+    <div id="deleted_note_manager">
+        <div id="deleted_note_manager_options">
+            <div>
+                <button id="deleted_note_manager_delete_forever_button">Delete Forever</button>
+            </div>
+            <div>
+                <button id="deleted_note_manager_cancel_button">Cancel</button>
+                <button id="deleted_note_manager_restore_button">Restore</button>
+            </div>
+        </div>
+        <div id="deleted_note_manager_note"></div>
+    </div>
+
+    <script src="main_index.js"></script>
+</body>
+</html>
