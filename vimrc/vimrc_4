@@ -1,0 +1,28 @@
+filetype plugin on
+filetype indent on
+syntax enable
+
+set number
+
+set nobackup
+set nowritebackup
+set noswapfile
+
+set expandtab
+set smarttab
+set smartindent
+set shiftwidth=4
+set tabstop=4
+
+set hidden
+
+set nowrap
+
+set hlsearch
+set incsearch
+
+set mouse=a
+
+if (has('termguicolors'))
+  set termguicolors
+endif
