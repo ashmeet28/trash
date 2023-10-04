@@ -1,12 +1,9 @@
 var Compiler = {};
 
-(function () {
-    var tokens = [];
-
-    var assembly = '';
-
+Compiler.compile = function (tokens) {
     var current = 0;
 
+    var assembly = '';
 
     var tableGlobalFunc = [];
     var tableGlobalVar = [];
@@ -14,11 +11,17 @@ var Compiler = {};
 
     var computStack = [];
 
+    var computOpStack = [];
+
     var currentScopeLevel = 1;
 
-    var instP = 0;
-    var globalVarP = 0;
-    var localVarP = 0;
+    var instP = 0x10000000;
+
+    var globalVarP = 0x20010000;
+
+    var localVarP = 0x3fffffff;
+
+    var token;
 
     function advance() {
         var token = tokens[current];
@@ -28,6 +31,10 @@ var Compiler = {};
 
     function peek() {
         return tokens[current];
+    }
+
+    function resetLocalVarP() {
+        localVarP = 0x3fffffff;
     }
 
     function compileFunc() {
@@ -63,24 +70,19 @@ var Compiler = {};
 
         tableGlobalFunc.push(cell);
         currentScopeLevel = 2;
-        localVarP = 0;
+        resetLocalVarP();
     }
 
     function compileVar() {
         advance();
         var varInfo = getVarNameAndType();
+
         if (currentScopeLevel == 1) {
-            var tableVarInfo = {info: varInfo, location: globalVarP};
-            tableGlobalVar.push(tableVarInfo);
+            tableGlobalVar.push({ info: varInfo, location: globalVarP });
             globalVarP += varInfo.varType.varSize;
         } else {
-            var tableVarInfo = {info: varInfo, location: localVarP};
-            tableLocalVar.push(tableVarInfo);
+            tableLocalVar.push({ info: varInfo, location: localVarP });
             localVarP += varInfo.varType.varSize;
-        }
-
-        if (peek().T == 'ASSIGN') {
-            computStack.push(tableVarInfo);
         }
     }
 
@@ -101,6 +103,7 @@ var Compiler = {};
             isSigned: false,
             varValue: 0,
         };
+
         var token = advance();
         var s = token.S;
         if (s.slice(-2) == 'u8') {
@@ -157,17 +160,8 @@ var Compiler = {};
         assembly += '\n';
         instP += 4;
     }
-    function compile(tokens_input) {
-        tokens = tokens_input;
-        assembly = '';
-        current = 0;
 
-        tableGlobalFunc = [];
-        tableGlobalVar = [];
-        tableLocalVar = [];
-
-        var token;
-
+    function emitInitInst() {
         // Memory map:
         // 0x0002_0000 Ecall Parameters
         // 0x0003_0000 Ecall Return Value
@@ -187,7 +181,10 @@ var Compiler = {};
 
         emitInst('lliu 04 ff ff'); // Local Variables: 0x3fff_ffff
         emitInst('lui  04 ff 3f');
+    }
 
+    function runMainLoop() {
+        var token;
         while (true) {
             token = peek();
             if (token.T == 'EOF') {
@@ -202,13 +199,18 @@ var Compiler = {};
                 advance();
             }
         }
+    }
+
+    function logDebugInfo() {
         console.log(tableGlobalFunc);
         console.log(tableGlobalVar);
         console.log(tableLocalVar);
         console.log(instP);
-
-        return assembly;
     }
 
-    Compiler.compile = compile;
-})();
+    emitInitInst();
+    runMainLoop();
+    logDebugInfo();
+
+    return assembly;
+};
