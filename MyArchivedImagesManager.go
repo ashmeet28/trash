@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"path"
 )
 
 func main() {
@@ -21,7 +22,7 @@ func main() {
 				log.Fatal(err)
 			}
 			h := sha256.Sum256(data)
-			if hex.EncodeToString(h[:12])+".jpg" != file.Name() {
+			if hex.EncodeToString(h[:12])+path.Ext(file.Name()) != file.Name() {
 				fmt.Println("File corruption detected - " + file.Name())
 				isFileCorruptionDetected = true
 				break
@@ -37,7 +38,7 @@ func main() {
 				log.Fatal(err)
 			} else {
 				h := sha256.Sum256(data)
-				err := os.WriteFile("../"+os.Args[2]+"/"+hex.EncodeToString(h[:12])+".jpg", data, 0666)
+				err := os.WriteFile("../"+os.Args[2]+"/"+hex.EncodeToString(h[:12])+path.Ext(file.Name()), data, 0666)
 				if err != nil {
 					log.Fatal(err)
 				}
