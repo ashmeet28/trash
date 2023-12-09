@@ -58,6 +58,7 @@ func main() {
 			return
 		}
 		file_path = path.Join(os.Args[1], file_path)
+		fmt.Println("Preparing to save: " + file_path)
 		err1 := os.MkdirAll(path.Dir(file_path), 0755)
 		if err1 != nil {
 			fmt.Println("Unable to make parent dir")
