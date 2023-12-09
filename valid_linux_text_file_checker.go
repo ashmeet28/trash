@@ -12,7 +12,7 @@ func main() {
 		log.Fatal(err)
 	}
 	for _, v := range data {
-		if ((v < 0x20) || (v > 0x7e)) && v != 0xa {
+		if ((v < 0x20) || (v > 0x7e)) && v != 0xa && v != 0x9 {
 			fmt.Println("Fail")
 			os.Exit(1)
 		}
