@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1wpybjkil2ne"]
+
+[ext_resource type="Script" path="res://player_ship.gd" id="1_4n66h"]
+[ext_resource type="Texture2D" uid="uid://1b8s3nnrivxr" path="res://svg/player_ship.svg" id="1_cyhbx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_036l0"]
+radius = 20.0
+
+[node name="PlayerShip" type="Area2D"]
+script = ExtResource("1_4n66h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_036l0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_cyhbx")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
