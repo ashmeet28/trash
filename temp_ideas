@@ -1,0 +1,13 @@
+d_read | path buf buf_size offset | bytes read
+d_lock | path | -1 or 0
+d_unlock | path | -1 or 0
+d_create | path | -1 or 0
+d_remove | path | -1 or 0
+
+f_lock | path | -1 or 0
+f_unlock | path | -1 or 0
+f_read | path buf buf_size offset | bytes read
+f_write | path buf buf_size offset | bytes read
+f_trim | path file_size | -1 or 0
+f_create | path | -1 or 0
+
