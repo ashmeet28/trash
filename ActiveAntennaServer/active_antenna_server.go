@@ -11,10 +11,10 @@ import (
 )
 
 func main() {
-	http.Handle("/", http.FileServer(http.Dir(os.Args[2])))
+	http.Handle("/", http.FileServer(http.Dir("public")))
 
-	http.HandleFunc("/download/storage/", func(w http.ResponseWriter, r *http.Request) {
-		file_path, err := url.PathUnescape(r.URL.Path[len("/download/storage/"):])
+	http.HandleFunc("/dl/", func(w http.ResponseWriter, r *http.Request) {
+		file_path, err := url.PathUnescape(r.URL.Path[len("/dl/"):])
 		if err != nil {
 			fmt.Println("Unable to unescape path")
 			w.WriteHeader(http.StatusInternalServerError)
@@ -50,8 +50,8 @@ func main() {
 		fmt.Println("File sent: " + file_path)
 	})
 
-	http.HandleFunc("/upload/storage/", func(w http.ResponseWriter, r *http.Request) {
-		file_path, err := url.PathUnescape(r.URL.Path[len("/upload/storage/"):])
+	http.HandleFunc("/up/", func(w http.ResponseWriter, r *http.Request) {
+		file_path, err := url.PathUnescape(r.URL.Path[len("/up/"):])
 		if err != nil {
 			fmt.Println("Unable to unescape path")
 			w.WriteHeader(http.StatusInternalServerError)

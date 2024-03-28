@@ -36,7 +36,7 @@
                 logViewAddLine('File upload failed: ' + filePath);
             }
 
-            xhttp.open('POST', encodeURI('/upload/storage/' + filePath), true)
+            xhttp.open('POST', encodeURI('/up/' + filePath), true)
             xhttp.send(fileInput.files[0])
 
             logViewAddLine('Uploading file: ' + filePath);
