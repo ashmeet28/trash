@@ -1,6 +1,6 @@
 sudo pacman -S bash-completion gnome-shell gnome-control-center gnome-terminal gnome-tweaks gnome-backgrounds gdm gvfs dosfstools base-devel man-db man-pages dbus-glib ffmpeg git htop noto-fonts ttf-hack qemu-desktop wget transmission-gtk inkscape imagemagick smartmontools
 gsettings set org.gnome.desktop.media-handling automount false
 gsettings set org.gnome.desktop.media-handling automount-open false
-sudo systemctl enable fstrim.service
+sudo systemctl enable fstrim.timer
 sudo systemctl enable bluetooth.service
 sudo systemctl enable gdm.service

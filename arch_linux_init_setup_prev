@@ -1,0 +1,25 @@
+ln -sf /usr/share/zoneinfo/US/Eastern /etc/localtime
+hwclock --systohc
+pacman -S nano
+pacman -S nano
+nano /etc/locale.gen
+nano /etc/locale.gen
+locale-gen 
+nano /etc/locale.conf
+nano /etc/hostname
+pacman -S networkmanager
+passwd 
+pacman -S grub
+grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB --removable
+grub-mkconfig -o /boot/grub/grub.cfg
+pacman -S sudo
+exit
+echo "1" > /proc/sys/kernel/sysrq 
+exit
+useradd --help
+useradd -d /home/xenon xenon
+passwd xenon
+usermod -aG wheel xenon
+export EDITOR=nano
+visudo 
+exit
