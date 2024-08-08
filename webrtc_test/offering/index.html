@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebRTC Test</title>
+</head>
+
+<body>
+
+    <button onclick="offer()">Offer</button>
+    <br>
+    <button onclick="acceptAnswer()">Accept Answer</button>
+    <br>
+    <input type="text" id="MainInput">
+</body>
+
+<script>
+    var MainInput = document.getElementById('MainInput')
+
+    var acceptAnswer = function () { }
+
+    function createNewOffer() {
+        var servers = { iceServers: [{ urls: [] }] };
+
+        var pc = new RTCPeerConnection()
+
+        pc.createDataChannel("MainChan").addEventListener('open', () => console.log("yeah!"))
+
+        pc.createOffer().then((offer) => {
+            pc.setLocalDescription(offer).then(() => {
+                MainInput.value = JSON.stringify(offer)
+                console.log(1293)
+                acceptAnswer = function () {
+                    pc.setRemoteDescription(JSON.parse(MainInput.value)).then(() => {
+                        console.log(3018)
+                    })
+                }
+            })
+        })
+
+        pc.addEventListener('icecandidate', (ev) => console.log(ev))
+        pc.addEventListener('connectionstatechange', (ev) => console.log(pc.connectionState))
+    }
+
+    function offer() {
+        createNewOffer()
+    }
+</script>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebRTC Test</title>
+</head>
+
+<body>
+
+    <button onclick="answer()">Answer</button>
+    <br>
+    <input type="text" id="MainInput">
+</body>
+
+<script>
+    var MainInput = document.getElementById('MainInput')
+
+    function createNewAnswer() {
+        var servers = { iceServers: [{ urls: [] }] };
+
+        var pc = new RTCPeerConnection()
+
+        pc.setRemoteDescription(JSON.parse(MainInput.value)).then(() => {
+            pc.createAnswer().then((answer) => {
+                pc.setLocalDescription(answer).then(() => {
+                    console.log(1252);
+                    MainInput.value = JSON.stringify(answer)
+                })
+            })
+        })
+
+        pc.addEventListener('icecandidate', (ev) => console.log(ev))
+    }
+
+    function answer() {
+        createNewAnswer()
+    }
+</script>
+
+</html>
